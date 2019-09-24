@@ -8,27 +8,48 @@ namespace Waterskibaan
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Lijn lijn1 = new Lijn();
-            lijn1.PositieOpDeKabel = 1;
-
-            Lijn lijn2 = new Lijn();
-            lijn2.PositieOpDeKabel = 0;
-
-            Lijn lijn3 = new Lijn();
-            lijn3.PositieOpDeKabel = 2;
-
-            Kabel kabel = new Kabel();
-            kabel.NeemLijnInGebruik(lijn1);
-            kabel.NeemLijnInGebruik(lijn2);
-            kabel.NeemLijnInGebruik(lijn3);
-
-
-            foreach (Lijn ch in kabel.getList())
-                Console.Write(ch.PositieOpDeKabel + " ");
-
+            //TestOpdracht2();
+            //TestOpdracht3();
+            TestOpdracht4();
         }
-        
+        private static void TestOpdracht2()
+        {
+            Kabel kabel = new Kabel();
+            for(int i = 0; i <= 9; i++)
+            {
+                kabel.NeemLijnInGebruik(new Lijn());
+            }
+           
+            Console.WriteLine(kabel);
+            kabel.VerschuifLijnen();
+            Console.WriteLine(kabel);
+        }
+
+        private static void TestOpdracht3()
+        {
+            LijnenVoorraad voorraad = new LijnenVoorraad();
+
+            voorraad.LijnToevoegenAanRij(new Lijn());
+            voorraad.LijnToevoegenAanRij(new Lijn());
+            voorraad.LijnToevoegenAanRij(new Lijn());
+            Console.WriteLine(voorraad);
+
+            voorraad.VerwijderEersteLijn();
+            Console.WriteLine(voorraad);
+        }
+
+        private static void TestOpdracht4()
+        {
+            Kabel kabel = new Kabel();
+            for (int i = 0; i <= 9; i++)
+            {
+                kabel.NeemLijnInGebruik(new Lijn());
+            }
+            Waterskibaan waterskibaan = new Waterskibaan(kabel);
+            Console.WriteLine(waterskibaan);
+        }
     }
 }
